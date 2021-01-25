@@ -1,21 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { View, Text } from 'react-native';
+import { RecoilRoot } from 'recoil';
+import 'react-native-gesture-handler';
+import CreateStackNavigator from "./src/navigator/stackNavigator";
 
-export default function App() {
+import { SafeAreaView } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import Landing from './src';
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <RecoilRoot>
+      <React.Suspense fallback={<View><Text>...Loading</Text></View>}>
+        <NavigationContainer>
+          <CreateStackNavigator />
+        </NavigationContainer>
+      </React.Suspense>
+    </RecoilRoot>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
