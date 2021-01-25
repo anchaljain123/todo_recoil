@@ -69,20 +69,19 @@ const TodoList = props => {
             <View style={{
                 justifyContent: 'flex-end',
                 alignItems: 'center',
-                marginBottom: 30
+                marginBottom: 30,
+                padding: 12,
+                backgroundColor: 'lightgrey',
+                borderColor: 'black',
+                borderWidth: 1,
+                borderRadius: 5,
             }}>
                 <TouchableOpacity onPress={() => props.navigation.push('TodoItemCreatorScreen')}
-                    style={{
-                        marginBottom: 20,
-                        backgroundColor: 'lightgrey',
-                        borderColor: 'black',
-                        borderWidth: 1,
-                        borderRadius: 5,
-                        padding: 8,
-                    }}>
+                    style={{}}>
                     <Text style={{
                         color: 'white',
-                        fontWeight: 'bold'
+                        fontWeight: 'bold',
+                        fontSize:16
                     }}>New Task</Text>
                 </TouchableOpacity>
             </View>
