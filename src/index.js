@@ -5,9 +5,7 @@ import CreateStackNavigator from "./navigator/stackNavigator";
 
 const Landing = () => {
     return (
-        <SafeAreaView style={{
-            flex: 1
-        }}>
+        <SafeAreaView style={{ flex: 1 }}>
             <CreateStackNavigator />
         </SafeAreaView>
     );

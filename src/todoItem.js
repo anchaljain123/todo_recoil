@@ -26,11 +26,7 @@ function TodoItem({ item, idx }) {
                 padding: 20
             }}>
                 <View style={[styles.boxWrapper, { borderColor: item.isUrgent ? 'red' : 'none' }]}>
-                    <Text style={{
-                        color: 'white',
-                        fontWeight: 'bold',
-                        fontSize: 16
-                    }}>Task {idx}</Text>
+                    <Text style={styles.heading}>Task {idx}</Text>
                 </View>
                 <View style={{
                     marginLeft: 30,

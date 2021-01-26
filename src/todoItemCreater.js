@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
 import { useSetRecoilState } from 'recoil';
 import Constants from "expo-constants";
-
+import { getId } from './utils';
 // * Atoms
 import { todoListState } from './Atoms';
 import { View, Text, TouchableOpacity, TextInput, SafeAreaView, Image } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-// utility for creating unique Id
-let id = 1;
-function getId() {
-    return id++;
-}
+import { styles } from './styles';
+
 
 function TodoItemCreator(props) {
     const [inputValue, setInputValue] = useState('');
@@ -31,8 +28,6 @@ function TodoItemCreator(props) {
                 }
             ]
         });
-        // setInputValue('');
-        // setBodyValue('');
         props.navigation.pop()
     };
 
@@ -96,13 +91,7 @@ function TodoItemCreator(props) {
                     flex: 1,
                     justifyContent: 'flex-end'
                 }}>
-                    <TouchableOpacity onPress={addItem} style={{
-                        borderColor: 'black',
-                        borderWidth: 1,
-                        marginVertical: 20,
-                        alignItems: 'center',
-                        paddingVertical: 10
-                    }}>
+                    <TouchableOpacity onPress={addItem} style={styles.submitBtn}>
                         <Text>Submit</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => props.navigation.pop()}
