@@ -50,7 +50,7 @@ function TodoItemCreator(props) {
         }}>
             <View style={{
                 alignItems: 'center',
-                marginVertical: 10
+                marginVertical: 20
             }}>
                 <Image style={{
                     width: '80%',
@@ -60,19 +60,24 @@ function TodoItemCreator(props) {
             </View>
             <Text>Add a Task</Text>
             <KeyboardAwareScrollView showsVerticalScrollIndicator={false}>
-                <View style={{ marginTop:20 }}>
+                <View style={{ marginTop: 20 }}>
                     <Text>Title</Text>
                     <TextInput
                         style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
                         onChangeText={e => onChange(e)} />
                 </View>
                 <View style={{
-                    marginVertical:20
+                    marginVertical: 20,
                 }}>
                     <Text>Body</Text>
                     <TextInput
                         multiline={true}
-                        style={{ height: 90, borderColor: 'gray', borderWidth: 1 }}
+                        numberOfLines={3}
+                        textAlignVertical="top"
+                        style={{
+                            borderColor: 'gray',
+                            borderWidth: 1
+                        }}
                         onChangeText={e => onChangeBody(e)} />
                 </View>
                 <View style={{
@@ -87,29 +92,29 @@ function TodoItemCreator(props) {
                     <Text>Urgent</Text>
                 </View>
 
-            <View style={{
-                flex: 1,
-                justifyContent: 'flex-end'
-            }}>
-                <TouchableOpacity onPress={addItem} style={{
-                    borderColor: 'black',
-                    borderWidth: 1,
-                    marginVertical: 20,
-                    alignItems: 'center',
-                    paddingVertical: 10
+                <View style={{
+                    flex: 1,
+                    justifyContent: 'flex-end'
                 }}>
-                    <Text>Submit</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => props.navigation.pop()}
-                    style={{
+                    <TouchableOpacity onPress={addItem} style={{
                         borderColor: 'black',
                         borderWidth: 1,
+                        marginVertical: 20,
                         alignItems: 'center',
                         paddingVertical: 10
                     }}>
-                    <Text>Cancel</Text>
-                </TouchableOpacity>
-            </View>
+                        <Text>Submit</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => props.navigation.pop()}
+                        style={{
+                            borderColor: 'black',
+                            borderWidth: 1,
+                            alignItems: 'center',
+                            paddingVertical: 10
+                        }}>
+                        <Text>Cancel</Text>
+                    </TouchableOpacity>
+                </View>
             </KeyboardAwareScrollView>
 
         </SafeAreaView>

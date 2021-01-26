@@ -2,7 +2,8 @@ import React from 'react';
 import { useRecoilState } from 'recoil';
 // * Atoms
 import { todoListState } from './Atoms';
-import { View, Text, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
+import { styles } from './styles';
 
 function removeItemAtIndex(arr, index) {
     return [...arr.slice(0, index), ...arr.slice(index + 1)];
@@ -18,32 +19,17 @@ function TodoItem({ item, idx }) {
     };
 
     return (
-
-        <View style={{
-            flexDirection: 'row',
-            marginVertical: 20,
-            borderColor: 'black',
-            borderWidth: 1,
-            borderRadius: 10
-        }}>
-             <View style={{
+        <View style={styles.todoContainer}>
+            <View style={{
                 flexDirection: 'row',
                 justifyContent: 'space-around',
                 padding: 20
             }}>
-                <View style={{
-                    borderColor: item.isUrgent ? 'red' : 'none',
-                    borderWidth: 1,
-                    borderRadius: 5,
-                    paddingVertical: 3,
-                    paddingHorizontal: 18,
-                    backgroundColor: 'black',
-                    justifyContent: 'center'
-                }}>
+                <View style={[styles.boxWrapper, { borderColor: item.isUrgent ? 'red' : 'none' }]}>
                     <Text style={{
-                        color:'white',
+                        color: 'white',
                         fontWeight: 'bold',
-                        fontSize:16
+                        fontSize: 16
                     }}>Task {idx}</Text>
                 </View>
                 <View style={{
@@ -55,7 +41,7 @@ function TodoItem({ item, idx }) {
                     }}>{item.text}</Text>
                     <Text>{item.body}</Text>
                 </View>
-            </View> 
+            </View>
             <View style={{
                 flex: 1,
                 alignItems: 'flex-end',
@@ -70,7 +56,7 @@ function TodoItem({ item, idx }) {
                         fontWeight: 'bold'
                     }}>X</Text>
                 </TouchableOpacity>
-            </View> 
+            </View>
         </View>
     );
 }

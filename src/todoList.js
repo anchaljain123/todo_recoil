@@ -51,7 +51,7 @@ const TodoList = props => {
                         height: 20,
                         width: 20,
                         marginRight: 4,
-                        
+
                     }} />
                     <Text>Urgent</Text>
                 </View>
@@ -66,25 +66,23 @@ const TodoList = props => {
                     ))}
                 </ScrollView>
             </View>
-            <View style={{
-                justifyContent: 'flex-end',
-                alignItems: 'center',
-                marginBottom: 30,
-                padding: 12,
-                backgroundColor: 'lightgrey',
-                borderColor: 'black',
-                borderWidth: 1,
-                borderRadius: 5,
-            }}>
-                <TouchableOpacity onPress={() => props.navigation.push('TodoItemCreatorScreen')}
-                    style={{}}>
-                    <Text style={{
-                        color: 'white',
-                        fontWeight: 'bold',
-                        fontSize:16
-                    }}>New Task</Text>
-                </TouchableOpacity>
-            </View>
+            <TouchableOpacity
+                onPress={() => props.navigation.push('TodoItemCreatorScreen')}
+                activeOpacity={1}
+                style={{
+                    padding: 20,
+                    backgroundColor: 'lightgrey',
+                    borderColor: 'black',
+                    borderWidth: 1,
+                    borderRadius: 5,
+                }}>
+                <Text style={{
+                    color: 'white',
+                    fontWeight: 'bold',
+                    fontSize: 16,
+                    textAlign: 'center'
+                }}>New Task</Text>
+            </TouchableOpacity>
         </SafeAreaView>
     );
 }
